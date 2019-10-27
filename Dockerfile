@@ -31,6 +31,6 @@ RUN rm -rf /srv/shiny-server/* \
   && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
   && rm -rf test.zip test-master/ \
   && rm -rf /tmp/* /var/tmp/*
-EXPOSE 3838
+
 # start shiny server process - it listens to port 3838
 CMD ["/opt/shiny-server.sh"]
