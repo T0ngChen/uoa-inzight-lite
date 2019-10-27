@@ -5,7 +5,7 @@
 # repository and installs the shiny app for Lite
 #
 # ----------------------------------------
-FROM cttc101/lite-base:latest
+FROM cttc101/lite-package:latest
 
 MAINTAINER "Science IS Team" ws@sit.auckland.ac.nz
 
@@ -17,20 +17,19 @@ ENV LAST_BUILD_DATE "Thu 24 10 21:45:00 NZDT 2019"
 
 
 # Install (via R) all of the necessary packages (R will automatially install dependencies):
-RUN rm -rf /srv/shiny-server/* \
-  # && wget --no-verbose -O Lite.zip https://github.com/iNZightVIT/Lite/archive/master.zip \
-  # && unzip Lite.zip \
-  # && cp -R Lite-master/* /srv/shiny-server \
-  # && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
-  # && rm -rf Lite.zip Lite-master/ \
-  # && rm -rf /tmp/* /var/tmp/*
+RUN wget --no-verbose -O shiny-server.deb https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb \
+  && gdebi shiny-server.deb \
+  && rm -f shiny-server.deb \
   && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
-  && mkdir /srv/shiny-server \
+#  && mkdir /srv/shiny-server \
   && cp -R test-master/* /srv/shiny-server/ \
-  && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
-  && rm -rf test.zip test-master/ \
-  && rm -rf /tmp/* /var/tmp/*
+  && rm -f test.zip test-master/ \
+  && rm -f /tmp/* /var/tmp/* \
+  && chown shiny:shiny /var/lib/shiny-server
 
-# start shiny server process - it listens to port 3838
-CMD ["/opt/shiny-server.sh"]
+EXPOSE 3838
+
+COPY shiny-server.sh /usr/bin/shiny-server.sh
+
+CMD ["/usr/bin/shiny-server.sh"]
