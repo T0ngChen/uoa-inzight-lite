@@ -24,7 +24,7 @@ RUN rm -rf /srv/shiny-server/* \
   # && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
   # && rm -rf Lite.zip Lite-master/ \
   # && rm -rf /tmp/* /var/tmp/*
-  && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip
+  && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
   && cp -R test-master/* /srv/shiny-server \
   && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
