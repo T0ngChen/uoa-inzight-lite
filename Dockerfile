@@ -26,7 +26,7 @@ RUN rm -rf /srv/shiny-server/* \
   # && rm -rf /tmp/* /var/tmp/*
   && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
-  && cp -R test-master/* /srv/shiny-server/ \
+  && cp -R test-master/* ~/srv/shiny-server/ \
   && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
   && rm -rf test.zip test-master/ \
   && rm -rf /tmp/* /var/tmp/*
