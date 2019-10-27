@@ -25,10 +25,12 @@ RUN wget --no-verbose -O shiny-server.deb https://download3.rstudio.org/ubuntu-1
   && mkdir /srv/shiny-server \
   && cp -R test-master/* /srv/shiny-server/ \
   && rm -rf test.zip test-master \
-  && rm -f /tmp/* /var/tmp/* \
-  && chown -R shiny:shiny /var/lib/shiny-server
+  && rm -f /tmp/* /var/tmp/* 
+#  && chown -R shiny:shiny /var/lib/shiny-server
 
 EXPOSE 3838
+
+RUN sudo chown -R shiny:shiny /srv/shiny-server
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
 
