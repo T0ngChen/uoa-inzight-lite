@@ -30,7 +30,7 @@ RUN wget --no-verbose -O shiny-server.deb https://download3.rstudio.org/ubuntu-1
 
 EXPOSE 3838
 
-RUN sudo chown -R shiny:shiny /srv/shiny-server
+#RUN sudo chown -R shiny:shiny /srv/shiny-server
 
 COPY shiny-server.sh /usr/bin/shiny-server.sh
 
