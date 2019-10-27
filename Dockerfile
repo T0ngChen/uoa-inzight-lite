@@ -26,10 +26,9 @@ RUN rm -rf /srv/shiny-server/* \
   # && rm -rf /tmp/* /var/tmp/*
   && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
-  && cp -R test-master/* /srv/shiny-server \
-  && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
+  && cp -R Lite-master/* /srv/shiny-server \
   && rm -rf test.zip test-master/ \
-  && rm -rf /tmp/* /var/tmp/*
+  && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # start shiny server process - it listens to port 3838
 CMD ["/opt/shiny-server.sh"]
