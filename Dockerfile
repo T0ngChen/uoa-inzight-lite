@@ -20,9 +20,9 @@ ENV LAST_BUILD_DATE "Thu 24 10 21:45:00 NZDT 2019"
 RUN wget --no-verbose -O shiny-server.deb https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb \
   && gdebi shiny-server.deb \
   && rm -f shiny-server.deb \
+  && rm -rf /srv/shiny-server/*
   && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
-  && mkdir /srv/shiny-server \
   && cp -R test-master/* /srv/shiny-server/ \
   && rm -rf test.zip test-master \
   && rm -f /tmp/* /var/tmp/* 
