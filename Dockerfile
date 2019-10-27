@@ -5,7 +5,7 @@
 # repository and installs the shiny app for Lite
 #
 # ----------------------------------------
-FROM cttc101/lite-package:latest
+FROM cttc101/lite-base:latest
 
 MAINTAINER "Science IS Team" ws@sit.auckland.ac.nz
 
