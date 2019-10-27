@@ -26,7 +26,7 @@ RUN rm -rf /srv/shiny-server/* \
   # && rm -rf /tmp/* /var/tmp/*
   && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
-  && cp -R Lite-master/* /srv/shiny-server \
+  && cp -R test-master/* /srv/shiny-server \
   && rm -rf test.zip test-master/ \
   && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
