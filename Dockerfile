@@ -18,11 +18,17 @@ ENV LAST_BUILD_DATE "Thu 24 10 21:45:00 NZDT 2019"
 
 # Install (via R) all of the necessary packages (R will automatially install dependencies):
 RUN rm -rf /srv/shiny-server/* \
-  && wget --no-verbose -O Lite.zip https://github.com/iNZightVIT/Lite/archive/master.zip \
-  && unzip Lite.zip \
-  && cp -R Lite-master/* /srv/shiny-server \
+  # && wget --no-verbose -O Lite.zip https://github.com/iNZightVIT/Lite/archive/master.zip \
+  # && unzip Lite.zip \
+  # && cp -R Lite-master/* /srv/shiny-server \
+  # && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
+  # && rm -rf Lite.zip Lite-master/ \
+  # && rm -rf /tmp/* /var/tmp/*
+  && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip
+  && unzip test.zip \
+  && cp -R test-master/* /srv/shiny-server \
   && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
-  && rm -rf Lite.zip Lite-master/ \
+  && rm -rf test.zip test-master/ \
   && rm -rf /tmp/* /var/tmp/*
 
 # start shiny server process - it listens to port 3838
