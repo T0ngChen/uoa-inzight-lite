@@ -21,7 +21,6 @@ RUN wget --no-verbose -O shiny-server.deb https://download3.rstudio.org/ubuntu-1
   && sudo mkdir -p /var/log/shiny-server \
   && sudo mkdir -p /srv/shiny-server \
   && sudo mkdir -p /var/lib/shiny-server \
-  && sudo chown shiny /var/log/shiny-server \
   && sudo mkdir -p /etc/shiny-server \
   && rm -f shiny-server.deb \
   && rm -rf /srv/shiny-server/* \
