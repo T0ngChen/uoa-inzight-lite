@@ -18,11 +18,11 @@ ENV LAST_BUILD_DATE "Thu 24 10 21:45:00 NZDT 2019"
 # Install (via R) all of the necessary packages (R will automatially install dependencies):
 RUN wget --no-verbose -O shiny-server.deb https://download3.rstudio.org/ubuntu-14.04/x86_64/shiny-server-1.5.12.933-amd64.deb \
   && sudo gdebi shiny-server.deb  \
-#  && sudo mkdir -p /var/log/shiny-server \
-#  && sudo mkdir -p /srv/shiny-server \
-#  && sudo mkdir -p /var/lib/shiny-server \
-#  && sudo chown shiny /var/log/shiny-server \
-#  && sudo mkdir -p /etc/shiny-server \
+  && sudo mkdir -p /var/log/shiny-server \
+  && sudo mkdir -p /srv/shiny-server \
+  && sudo mkdir -p /var/lib/shiny-server \
+  && sudo chown shiny /var/log/shiny-server \
+  && sudo mkdir -p /etc/shiny-server \
   && rm -f shiny-server.deb \
   && rm -rf /srv/shiny-server/* \
   && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
