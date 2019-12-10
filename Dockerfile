@@ -20,9 +20,9 @@ RUN rm -rf /srv/shiny-server/* \
   && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
   && cp -R test-master/* /srv/shiny-server/ \
+  && echo $LAST_BUILD_DATE > /srv/shiny-server/build.txt \
   && rm -rf test.zip test-master \
-  && apt-get clean \
-  && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
+  && rm -rf /tmp/* /var/tmp/*
 #  && chown -R shiny:shiny /var/lib/shiny-server
 
 CMD ["/opt/shiny-server.sh"]
