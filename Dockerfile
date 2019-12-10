@@ -16,7 +16,8 @@ MAINTAINER "Science IS Team" ws@sit.auckland.ac.nz
 ENV LAST_BUILD_DATE "Thu 24 10 21:45:00 NZDT 2019"
 
 # Install (via R) all of the necessary packages (R will automatially install dependencies):
-RUN wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
+RUN rm -rf /srv/shiny-server/* \ 
+  && wget --no-verbose -O test.zip https://github.com/t0ngchen/test/archive/master.zip \
   && unzip test.zip \
   && cp -R test-master/* /srv/shiny-server/ \
   && rm -rf test.zip test-master \
