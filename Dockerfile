@@ -32,10 +32,4 @@ RUN wget --no-verbose -O shiny-server.deb https://download3.rstudio.org/ubuntu-1
   && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 #  && chown -R shiny:shiny /var/lib/shiny-server
 
-EXPOSE 3838
-
-#RUN sudo chown -R shiny:shiny /srv/shiny-server
-
-COPY shiny-server.sh /usr/bin/shiny-server.sh
-
-CMD ["chmod", "+x", "/usr/bin/shiny-server.sh"]
+CMD ["/opt/shiny-server.sh"]
